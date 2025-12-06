@@ -47,6 +47,15 @@ export const filmService = {
       .ilike('title', `%${query}%`)
       .order('title', { ascending: true })
     return { data, error }
+  },
+
+  async createFilm(film: Omit<Film, 'id' | 'created_at' | 'updated_at'>) {
+    const { data, error } = await supabase
+      .from('films')
+      .insert(film)
+      .select()
+      .single()
+    return { data, error }
   }
 }
 
