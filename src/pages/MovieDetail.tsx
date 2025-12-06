@@ -133,7 +133,7 @@ const MovieDetail: React.FC = () => {
 
   const { dates, times } = generateShowtimes()
 
-  const selectedFormatInfo = movie.formats.find(f => f.type === selectedFormat)
+  const selectedFormatInfo = movie?.formats?.find(f => f.type === selectedFormat)
 
   return (
     <div className="min-h-screen bg-black">
