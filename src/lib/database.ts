@@ -2,7 +2,6 @@ import { supabase } from './supabase'
 import type { 
   Film, 
   Cinema, 
-  Screen, 
   Showtime, 
   Customer, 
   Booking, 
