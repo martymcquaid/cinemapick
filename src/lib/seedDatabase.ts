@@ -46,9 +46,9 @@ export const seedDatabase = async () => {
     console.log('🏢 Seeding cinemas...')
     for (const mockCinema of mockCinemas) {
       const cinemaData = convertMockCinemaToDB(mockCinema)
-      const { error } = await cinemaService.createCinema(cinemaData)
-      if (error) {
-        console.error(`Error creating cinema ${mockCinema.name}:`, error)
+      const result = await cinemaService.createCinema(cinemaData)
+      if (result.error) {
+        console.error(`Error creating cinema ${mockCinema.name}:`, result.error)
       } else {
         console.log(`✅ Created cinema: ${mockCinema.name}`)
       }
