@@ -284,6 +284,15 @@ export const foodService = {
       `)
       .eq('booking_id', bookingId)
     return { data, error }
+  },
+
+  async createFoodItem(item: Omit<FoodItem, 'id' | 'created_at' | 'updated_at'>) {
+    const { data, error } = await supabase
+      .from('food_items')
+      .insert(item)
+      .select()
+      .single()
+    return { data, error }
   }
 }
 
