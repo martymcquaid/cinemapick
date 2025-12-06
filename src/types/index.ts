@@ -195,3 +195,80 @@ export interface Event {
   category: 'classic' | 'live' | 'special' | 'family'
   image?: string
 }
+
+// Database-specific interfaces (matching Supabase schema)
+export interface Film {
+  id: string
+  title: string
+  synopsis: string
+  runtime: number
+  genres: string[]
+  age_rating: string
+  release_date: string
+  poster_url: string
+  backdrop_url: string
+  trailer_url?: string
+  rating: number
+  status: 'now-showing' | 'coming-soon'
+  created_at: string
+  updated_at: string
+}
+
+export interface Customer {
+  id: string
+  first_name: string
+  last_name: string
+  email: string
+  phone: string
+  password_hash: string
+  date_of_birth?: string
+  postcode?: string
+  membership_tier?: string
+  loyalty_points: number
+  created_at: string
+  updated_at: string
+}
+
+export interface Booking {
+  id: string
+  customer_id: string
+  showtime_id: string
+  booking_reference: string
+  total_amount: number
+  status: 'pending' | 'confirmed' | 'cancelled'
+  payment_status: 'pending' | 'paid' | 'refunded'
+  booking_date: string
+  created_at: string
+  updated_at: string
+}
+
+export interface Ticket {
+  id: string
+  booking_id: string
+  seat_row: string
+  seat_number: number
+  ticket_type: 'adult' | 'child' | 'senior' | 'student'
+  price: number
+  created_at: string
+}
+
+export interface FoodOrder {
+  id: string
+  booking_id: string
+  food_item_id: string
+  quantity: number
+  size?: string
+  price_at_time: number
+  created_at: string
+}
+
+export interface Review {
+  id: string
+  film_id: string
+  customer_id: string
+  rating: number
+  review_text?: string
+  helpful_count: number
+  created_at: string
+  updated_at: string
+}
