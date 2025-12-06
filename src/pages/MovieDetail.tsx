@@ -213,8 +213,11 @@ const MovieDetail: React.FC = () => {
 
       {/* Trailer Modal */}
       {showTrailer && movie?.trailer && (
-        <div className="fixed inset-0 bg-black bg-opacity-90 z-50 flex items-center justify-center p-4">
-          <div className="relative w-full max-w-4xl">
+        <div 
+          className="fixed inset-0 bg-black bg-opacity-90 z-50 flex items-center justify-center p-4"
+          onClick={() => setShowTrailer(false)}
+        >
+          <div className="relative w-full max-w-4xl" onClick={(e) => e.stopPropagation()}>
             <button 
               onClick={() => setShowTrailer(false)}
               className="absolute -top-12 right-0 text-white hover:text-yellow-400 transition-colors"
