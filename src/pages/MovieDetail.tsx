@@ -68,6 +68,64 @@ const MovieDetail: React.FC = () => {
     return { dates, times }
   }
 
+  const mockReviews: Review[] = [
+    {
+      id: '1',
+      author: 'Sarah M.',
+      rating: 5,
+      date: '2024-03-01',
+      content: 'Absolutely stunning visuals and incredible performances. Denis Villeneuve has outdone himself!',
+      helpful: 24
+    },
+    {
+      id: '2',
+      author: 'John D.',
+      rating: 4,
+      date: '2024-03-02',
+      content: 'Great sequel that lives up to the hype. The world-building is phenomenal.',
+      helpful: 18
+    },
+    {
+      id: '3',
+      author: 'Emma L.',
+      rating: 5,
+      date: '2024-03-03',
+      content: 'Timothée Chalamet and Zendaya have amazing chemistry. A must-see on the big screen!',
+      helpful: 31
+    }
+  ]
+
+  const getSimilarMovies = () => {
+    return mockMovies.filter(m => 
+      m.id !== id && 
+      m.genres.some(g => movie?.genres.includes(g)) &&
+      m.status === movie?.status
+    ).slice(0, 3)
+  }
+
+  const getTicketPrice = () => {
+    const basePrice = selectedFormatInfo?.price || movie?.formats[0].price || 12.50
+    const multipliers = { adult: 1, child: 0.7, senior: 0.8, student: 0.8 }
+    return basePrice * multipliers[ticketType] * selectedSeats
+  }
+
+  const shareMovie = (platform: string) => {
+    const url = window.location.href
+    const text = `Check out ${movie?.title} at Omniplex!`
+    
+    switch(platform) {
+      case 'facebook':
+        window.open(`https://www.facebook.com/sharer/sharer.php?u=${url}`, '_blank')
+        break
+      case 'twitter':
+        window.open(`https://twitter.com/intent/tweet?text=${text}&url=${url}`, '_blank')
+        break
+      case 'whatsapp':
+        window.open(`https://wa.me/?text=${text} ${url}`, '_blank')
+        break
+    }
+  }
+
   const { dates, times } = generateShowtimes()
 
   const selectedFormatInfo = movie.formats.find(f => f.type === selectedFormat)
