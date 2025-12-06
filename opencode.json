@@ -1,4 +1,20 @@
 {
   "$schema": "https://opencode.ai/config.json",
-  "model": "opencode/big-pickle"
+  "model": "opencode/big-pickle",
+  "mcp": {
+    "supabase": {
+      "type": "local",
+      "command": [
+        "npx",
+        "-y",
+        "@supabase/mcp-server-supabase@latest"
+      ],
+      "enabled": true,
+      "environment": {
+        "SUPABASE_URL": "https://grfgqztuedpmyrrwrmly.supabase.co",
+        "SUPABASE_ANON_KEY": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImdyZmdxenR1ZWRwbXlycndybWx5Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3NjQ2ODcxMTMsImV4cCI6MjA4MDI2MzExM30.U-YAXJHT36ABHpDLxEYINkrXVPDVI_vf1Lf_O9JK88I",
+        "SUPABASE_SERVICE_KEY": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImdyZmdxenR1ZWRwbXlycndybWx5Iiwicm9sZSI6InNlcnZpY2Vfcm9sZSIsImlhdCI6MTc2NDY4NzExMywiZXhwIjoyMDgwMjYzMTEzfQ.TRMvC0ZtvYob_DdTyVItHAUarZRwWu2O8e21a94yGcw"
+      }
+    }
+  }
 }
