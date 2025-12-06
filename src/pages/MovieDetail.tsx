@@ -188,7 +188,8 @@ const MovieDetail: React.FC = () => {
               <Button 
                 variant="tertiary" 
                 size="lg"
-                onClick={() => {
+                onClick={(e) => {
+                  e.stopPropagation()
                   const dropdown = document.getElementById('share-dropdown')
                   dropdown?.classList.toggle('hidden')
                 }}
