@@ -22,7 +22,7 @@ interface SocialLink {
 
 const MovieDetail: React.FC = () => {
   const { id } = useParams<{ id: string }>()
-  const [movie, setMovie] = useState(mockMovies.find(m => m.id === id))
+  const [movie, setMovie] = useState<typeof mockMovies[0] | null>(null)
   const [selectedFormat, setSelectedFormat] = useState<string>('standard')
   const [selectedDate, setSelectedDate] = useState<string>('')
   const [selectedTime, setSelectedTime] = useState<string>('')
