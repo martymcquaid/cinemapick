@@ -1,7 +1,6 @@
 import React, { useState } from 'react'
 import Header from '../components/Header'
 import Footer from '../components/Footer'
-import MovieCard from '../components/MovieCard'
 import Button from '../components/Button'
 import { mockMovies } from '../utils/mockData'
 
