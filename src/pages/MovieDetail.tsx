@@ -200,9 +200,9 @@ const MovieDetail: React.FC = () => {
               </Button>
               
               <div id="share-dropdown" className="hidden absolute top-full mt-2 bg-gray-800 rounded-lg shadow-xl p-2 z-50">
-                <button onClick={() => shareMovie('facebook')} className="block w-full text-left px-4 py-2 text-white hover:bg-gray-700 rounded">Facebook</button>
-                <button onClick={() => shareMovie('twitter')} className="block w-full text-left px-4 py-2 text-white hover:bg-gray-700 rounded">Twitter</button>
-                <button onClick={() => shareMovie('whatsapp')} className="block w-full text-left px-4 py-2 text-white hover:bg-gray-700 rounded">WhatsApp</button>
+                <button onClick={(e) => { e.preventDefault(); shareMovie('facebook'); }} className="block w-full text-left px-4 py-2 text-white hover:bg-gray-700 rounded">Facebook</button>
+                <button onClick={(e) => { e.preventDefault(); shareMovie('twitter'); }} className="block w-full text-left px-4 py-2 text-white hover:bg-gray-700 rounded">Twitter</button>
+                <button onClick={(e) => { e.preventDefault(); shareMovie('whatsapp'); }} className="block w-full text-left px-4 py-2 text-white hover:bg-gray-700 rounded">WhatsApp</button>
               </div>
             </div>
           </div>

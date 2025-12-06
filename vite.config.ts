@@ -1,20 +1,24 @@
 import { defineConfig } from 'vite'
 import react from '@vitejs/plugin-react'
+import path from 'node:path'
+
+// Derive the project folder name so the base URL adapts automatically
+// when this template is duplicated for other Chipify projects.
+const projectId = path.basename(process.cwd())
+const basePath = `/chipify/projects/${projectId}/preview`
 
 export default defineConfig({
-  base: '/chipify/projects/dec66884-07bf-449e-aae5-0fa25bda5b6e/preview',
+  base: basePath,
   plugins: [react()],
   css: {
-    // Ensure CSS is processed and injected correctly
     devSourcemap: true,
   },
   server: {
     port: 5246,
     host: true,
     strictPort: true,
-    hmr: {
-      // HMR will be proxied through our backend
-      port: 5246,
-    },
+    // Disable HMR to stop the preview iframe from reconnecting in environments
+    // where websocket ports are blocked by the proxy (prevents infinite reloads).
+    hmr: false,
   },
 })
