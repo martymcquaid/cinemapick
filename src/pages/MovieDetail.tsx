@@ -32,9 +32,14 @@ const MovieDetail: React.FC = () => {
   const [ticketType, setTicketType] = useState<'adult' | 'child' | 'senior' | 'student'>('adult')
 
   useEffect(() => {
-    if (id) {
-      const foundMovie = mockMovies.find(m => m.id === id)
-      setMovie(foundMovie)
+    try {
+      if (id) {
+        const foundMovie = mockMovies.find(m => m.id === id)
+        setMovie(foundMovie || null)
+      }
+    } catch (error) {
+      console.error('Error loading movie:', error)
+      setMovie(null)
     }
   }, [id])
 
