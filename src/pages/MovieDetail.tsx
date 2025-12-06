@@ -185,12 +185,25 @@ const MovieDetail: React.FC = () => {
                 Watch Trailer
               </Button>
               
-              <Button variant="outline" size="lg" className="text-white border-white hover:bg-white hover:text-black">
+              <Button 
+                variant="tertiary" 
+                size="lg"
+                onClick={() => {
+                  const dropdown = document.getElementById('share-dropdown')
+                  dropdown?.classList.toggle('hidden')
+                }}
+              >
                 <svg className="w-5 h-5 mr-2" fill="currentColor" viewBox="0 0 20 20">
                   <path d="M15 8a3 3 0 10-2.977-2.63l-4.94 2.47a3 3 0 100 4.319l4.94 2.47a3 3 0 10.895-1.789l-4.94-2.47a3.027 3.027 0 000-.74l4.94-2.47C13.456 7.68 14.19 8 15 8z"/>
                 </svg>
                 Share
               </Button>
+              
+              <div id="share-dropdown" className="hidden absolute top-full mt-2 bg-gray-800 rounded-lg shadow-xl p-2 z-50">
+                <button onClick={() => shareMovie('facebook')} className="block w-full text-left px-4 py-2 text-white hover:bg-gray-700 rounded">Facebook</button>
+                <button onClick={() => shareMovie('twitter')} className="block w-full text-left px-4 py-2 text-white hover:bg-gray-700 rounded">Twitter</button>
+                <button onClick={() => shareMovie('whatsapp')} className="block w-full text-left px-4 py-2 text-white hover:bg-gray-700 rounded">WhatsApp</button>
+              </div>
             </div>
           </div>
         </div>
