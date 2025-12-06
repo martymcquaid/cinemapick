@@ -188,10 +188,11 @@ const MovieDetail: React.FC = () => {
               <Button 
                 variant="tertiary" 
                 size="lg"
-                onClick={(e) => {
-                  e.stopPropagation()
+                onClick={() => {
                   const dropdown = document.getElementById('share-dropdown')
-                  dropdown?.classList.toggle('hidden')
+                  if (dropdown) {
+                    dropdown.classList.toggle('hidden')
+                  }
                 }}
               >
                 <svg className="w-5 h-5 mr-2" fill="currentColor" viewBox="0 0 20 20">
