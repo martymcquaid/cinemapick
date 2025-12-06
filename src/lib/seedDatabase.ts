@@ -70,7 +70,7 @@ export const seedDatabase = async () => {
     console.log('🍿 Seeding food items...')
     for (const mockFood of mockFoodItems) {
       const foodData = convertMockFoodToDB(mockFood)
-      const { data, error } = await foodService.createFoodOrder(foodData as any)
+      const { error } = await foodService.createFoodItem(foodData as any)
       if (error) {
         console.error(`Error creating food item ${mockFood.name}:`, error)
       } else {
