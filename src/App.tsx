@@ -1,6 +1,7 @@
 import { Routes, Route } from 'react-router-dom'
 import Home from './pages/Home'
 import NowShowing from './pages/NowShowing'
+import ComingSoon from './pages/ComingSoon'
 
 // IMPORTANT: For navigation, always use <Link> from react-router-dom, not <a> tags
 // This ensures client-side routing works correctly with the preview URL base path
@@ -11,7 +12,7 @@ function App() {
     <Routes>
       <Route path="/" element={<Home />} />
       <Route path="/now-showing" element={<NowShowing />} />
-      <Route path="/coming-soon" element={<div>Coming Soon Page - Coming Soon</div>} />
+      <Route path="/coming-soon" element={<ComingSoon />} />
       <Route path="/movie/:id" element={<div>Movie Detail Page - Coming Soon</div>} />
       <Route path="/cinemas" element={<div>Cinema Locations Page - Coming Soon</div>} />
       <Route path="/cinema/:id" element={<div>Cinema Detail Page - Coming Soon</div>} />
