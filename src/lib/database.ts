@@ -85,6 +85,15 @@ export const cinemaService = {
       .eq('cinema_id', cinemaId)
       .order('screen_number', { ascending: true })
     return { data, error }
+  },
+
+  async createCinema(cinema: Omit<Cinema, 'id' | 'created_at' | 'updated_at'>) {
+    const { data, error } = await supabase
+      .from('cinemas')
+      .insert(cinema)
+      .select()
+      .single()
+    return { data, error }
   }
 }
 
