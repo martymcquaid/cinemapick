@@ -189,9 +189,13 @@ const MovieDetail: React.FC = () => {
                 variant="tertiary" 
                 size="lg"
                 onClick={() => {
-                  const dropdown = document.getElementById('share-dropdown')
-                  if (dropdown) {
-                    dropdown.classList.toggle('hidden')
+                  try {
+                    const dropdown = document.getElementById('share-dropdown')
+                    if (dropdown) {
+                      dropdown.classList.toggle('hidden')
+                    }
+                  } catch (error) {
+                    console.error('Error toggling share dropdown:', error)
                   }
                 }}
               >
