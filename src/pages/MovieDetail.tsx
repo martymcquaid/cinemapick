@@ -5,12 +5,31 @@ import Footer from '../components/Footer'
 import Button from '../components/Button'
 import { mockMovies } from '../utils/mockData'
 
+interface Review {
+  id: string
+  author: string
+  rating: number
+  date: string
+  content: string
+  helpful: number
+}
+
+interface SocialLink {
+  platform: string
+  url: string
+  icon: string
+}
+
 const MovieDetail: React.FC = () => {
   const { id } = useParams<{ id: string }>()
   const [movie, setMovie] = useState(mockMovies.find(m => m.id === id))
   const [selectedFormat, setSelectedFormat] = useState<string>('standard')
   const [selectedDate, setSelectedDate] = useState<string>('')
   const [selectedTime, setSelectedTime] = useState<string>('')
+  const [showTrailer, setShowTrailer] = useState<boolean>(false)
+  const [activeTab, setActiveTab] = useState<'reviews' | 'similar'>('reviews')
+  const [selectedSeats, setSelectedSeats] = useState<number>(1)
+  const [ticketType, setTicketType] = useState<'adult' | 'child' | 'senior' | 'student'>('adult')
 
   useEffect(() => {
     if (id) {
