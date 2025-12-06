@@ -131,6 +131,15 @@ export const showtimeService = {
       .eq('id', id)
       .single()
     return { data, error }
+  },
+
+  async createShowtime(showtime: Omit<Showtime, 'id' | 'created_at' | 'updated_at'>) {
+    const { data, error } = await supabase
+      .from('showtimes')
+      .insert(showtime)
+      .select()
+      .single()
+    return { data, error }
   }
 }
 
